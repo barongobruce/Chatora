@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Wallet, Clock, Smartphone, ShieldCheck, CheckCircle2 } from "lucide-react";
 import Container from "../Container";
 import { siteConfig } from "../../config/site";
-import { fadeUp } from "../../utils/animations";
+
 
 const ICONS = {
   wallet: Wallet,

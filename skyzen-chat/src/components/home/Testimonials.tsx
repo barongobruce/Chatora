@@ -35,7 +35,7 @@ export default function Testimonials() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {testimonials.items.map((item, index) => (
+          {testimonials.items.map((item) => (
             <motion.div
               key={item.name}
               className="testimonial-card"
