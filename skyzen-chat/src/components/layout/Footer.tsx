@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p className="footer-copyright">© {currentYear} Skyzen Chat. All rights reserved.</p>
+          <p className="footer-copyright">© {currentYear} Kindred Chat. All rights reserved.</p>
           <p className="footer-tagline">Made for conversations that matter.</p>
         </div>
       </div>

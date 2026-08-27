@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import connectionImage from "../../assets/images/hero-connection.png";
+import connectionImage from "../../assets/images/hero-connection.webp";
 import "./HeroVisual.css";
 
 export default function HeroVisual() {
