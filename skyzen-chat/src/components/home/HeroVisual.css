@@ -1,0 +1,41 @@
+.hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 610px;
+  margin: 0;
+  overflow: hidden;
+  border: 6px solid hsl(0 0% 100% / 0.88);
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: 0 24px 60px hsl(200 60% 25% / 0.18);
+}
+
+.hero-visual::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 1px solid hsl(187 76% 45% / 0.16);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (max-width: 540px) {
+  .hero-visual {
+    max-width: 100%;
+    border-width: 4px;
+    border-radius: 22px;
+  }
+
+  .hero-visual img {
+    aspect-ratio: 4 / 3;
+  }
+}

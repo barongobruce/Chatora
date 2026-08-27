@@ -1,0 +1,249 @@
+/* ==========================================================================
+   Skyzen Chat — Global Design System
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  /* ---- Color: surfaces ---- */
+  --background: #fbfdfe;
+  --background-secondary: #f2f7f9;
+  --surface: #ffffff;
+  --surface-hover: #eef6f8;
+
+  /* ---- Color: brand ---- */
+  --primary: #14b8c9;
+  --primary-hover: #0f9aa9;
+  --primary-light: #e3f8fa;
+  --primary-dark: #0b2b3a;
+
+  /* ---- Color: text ---- */
+  --text: #0b2239;
+  --text-muted: #55697a;
+  --text-inverse: #f5fbfc;
+
+  /* ---- Color: structure ---- */
+  --border: #e0eaee;
+  --border-strong: #cbdce1;
+  --shadow-color: 200 60% 25%;
+  --shadow-sm: 0 1px 2px hsl(var(--shadow-color) / 0.06);
+  --shadow-md: 0 8px 24px hsl(var(--shadow-color) / 0.08);
+  --shadow-lg: 0 20px 48px hsl(var(--shadow-color) / 0.12);
+
+  /* ---- Typography ---- */
+  --font-display: "Comic Neue", "Comic Sans MS", cursive, sans-serif;
+  --font-body: "Comic Neue", "Comic Sans MS", cursive, sans-serif;
+
+  /* ---- Radius ---- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+
+  /* ---- Layout ---- */
+  --container-max: 1200px;
+  --container-padding: clamp(1.25rem, 4vw, 2.5rem);
+  --nav-height: 84px;
+
+  /* ---- Motion ---- */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.4s;
+  --duration-slow: 0.8s;
+}
+
+/* ---- Reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+}
+
+/* Consistent, visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+/* ---- Skip link (accessibility) ---- */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  background: var(--primary-dark);
+  color: var(--text-inverse);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  transition: top var(--duration-fast) var(--ease-premium);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---- Reusable container ---- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ---- Reusable eyebrow / badge ---- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--primary-hover);
+  background: var(--primary-light);
+  border: 1px solid #bdeef3;
+  border-radius: var(--radius-full);
+  padding: 0.4rem 0.9rem;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: var(--radius-full);
+  padding: 0.95rem 1.75rem;
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) var(--ease-premium),
+    border-color var(--duration-fast) var(--ease-premium),
+    color var(--duration-fast) var(--ease-premium),
+    box-shadow var(--duration-fast) var(--ease-premium);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border-strong);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--primary);
+  color: var(--primary-hover);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+}
+
+@media (max-width: 720px) {
+  .btn {
+    width: 100%;
+  }
+}
